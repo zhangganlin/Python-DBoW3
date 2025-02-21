@@ -19,6 +19,7 @@
 #include "wrapper/wrapper_database.h"
 #include "funtional/bow_search_fn.h"
 #include "funtional/bow_frame_database.h"
+#include <iostream>
 
 namespace py = pybind11;
 
@@ -78,7 +79,15 @@ PYBIND11_MODULE(DBoW3Py, m) {
             ;
 
     py::class_<DBoW3::BowVector>(m, "BowVector")
-            .def(py::init<>());
+          .def(py::init<>())
+          .def("__str__", [](const DBoW3::BowVector& self) {
+               std::ostringstream str;
+               str << "BowVec["<< self <<"]";
+               // Instead of writing to an output stream, return the string content
+               return str.str();  // Return the raw binary content as a string
+               }, py::return_value_policy::take_ownership
+          ).def("getSignature", &DBoW3::BowVector::getSignature);
+
     py::class_<DBoW3::FeatureVector>(m, "FeatureVector")
             .def(py::init<>());
 
