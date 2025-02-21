@@ -26,7 +26,7 @@ SET(REQUIRED_LIBRARIES ${REQUIRED_LIBRARIES} ${OpenCV_LIBS})
 #include_directories(${PYTHON_INCLUDE_DIRS})
 #SET(REQUIRED_LIBRARIES ${PYTHON_LIBRARIES})
 
-include(Cmake/FindNumPy.cmake)
+include(cmake/FindNumPy.cmake)
 include_directories(${PYTHON_NUMPY_INCLUDE_DIR})
 # ----------------------------------------------------------------------------
 #   Find Dependencies -- DBoW3
