@@ -1,0 +1,22 @@
+[build-system]
+requires = ["scikit-build-core>=0.5.0", "setuptools>=65.0.0", "wheel", "numpy"]
+build-backend = "scikit_build_core.build"
+
+[tool.scikit-build]
+# Disable building optional utilities/demos
+cmake.define.BUILD_UTILS = "OFF"
+# Specify C++ standard (optional)
+cmake.define.CMAKE_CXX_STANDARD = "11"
+
+[project]
+name = "DBoW3Py"
+version = "0.0.3"
+description = "Python wrapper of DBoW3"
+readme = "README.md"
+authors = [
+    { name="Ancheng Lin", email="ancheng.lin@ieee.org" }
+]
+license = { text = "BSD-3-Clause" }
+requires-python = ">=3.8"
+dependencies = ["numpy"]
+urls = { "Homepage" = "https://github.com/zhangganlin/Python-DBoW3" }
