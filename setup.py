@@ -39,7 +39,7 @@ class CMakeBuild(build_ext):
 
         cmake_args = ['-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=' + extdir,
                       '-DPYTHON_EXECUTABLE=' + sys.executable,
-                      f'-DCMAKE_INSTALL_RPATH={extdir}'  # ensures Python finds libDBoW3.so automatically
+                      '-DCMAKE_INSTALL_RPATH=$ORIGIN'  # ensures Python finds libDBoW3.so automatically
                       ]
 
         cfg = 'Debug' if self.debug else 'Release'
